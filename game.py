@@ -3,6 +3,11 @@
 # date: 5/14/19
 # description: text-based adventure game
 
+# variables can be passed into other methods as arguments and then be called.
+# if the character_Name is to be used, just make sure that it follows down the list of
+# methods so it remains in scope.
+# probably not the best way for it to be done, but it makes sense to me.
+
 import sys; print(sys.version)
 import time
 import random
@@ -21,11 +26,15 @@ def storyIntro():
     character_Name = raw_input("What would you like your character's name to be?: ")
     print("")
     print("Hello, " + character_Name + "!")
+    print("Let's get started.")
+    print("")
+    print("-- LOTS OF STORY EXPOSITION --")
+    print("")
     confrontOrEscape(character_Name)
 
 ### ALL OF THE PLAYAGAINS ###
 
-def playAgain():
+def playAgain(name):
     answer = ""
     while answer != "yes" and answer != "no":
         print("Would you like to play again?")
@@ -36,7 +45,7 @@ def playAgain():
         print("Let's try that again")
         print("")
         print "\033c"
-        confrontOrEscape()
+        confrontOrEscape(name)
 
     elif answer == "no":
         print("")
@@ -58,12 +67,72 @@ def confrontOrEscape(name):
         print("More story exposition.")
         print("He asks if you would like to join him and his leader in conquest.")
         print("")
-        joinOrEscape()
+        joinOrEscape(name)
     
     elif path == "escape":
         print("")
-        print("You escape")
+        print("You escape to the woods.")
+        print("You take shelter at the mouth of a cave.")
+        print("You can hear a bandit make his way towards you.")
+        print("You can take shelter by going further into the cave or you can see if you can take out the lone bandit.")
         print("")
+        escapeToTheWoods(name)
+        print("")
+
+def escapeToTheWoods(name):
+    run = ""
+    while run != "hide" and run != "attack":
+        run = raw_input("Do you go further into the cave or try and take out the bandit by sneaking up and hitting him with a rock? hide/attack \n").lower().strip()
+
+    if run == "hide":
+        print("")
+        print("You make your way further into the cave to avoid detection by the bandits or any of his comrades.")
+        print("You move fruther back into the cave.")
+        print("You hear a noise and take shelter behind a rock to avoid any detection.")
+        print("A bandit makes his way towards the cave.")
+        print("He takes a quick glance in.")
+        print("'Huh. Thought I heard something.'")
+        print("The bandit then turns around and walks away.")
+        print("You take a second just to make sure he's gone and then plan your next move.")
+        leftRight()
+        print("")
+
+    if run == "attack":
+        print("")
+        print("You pick up a sizable rock and start sneaking towards the bandit, being careful not too make too much noise")
+        print("and waiting until he's got his back to you.")
+        shoutOrSilent(name)
+        print("")
+
+def leftRight():
+    print("You decide to venture further into the cave")
+    print("")
+
+
+def shoutOrSilent(name):
+    shout = ""
+    while shout != "shout" and shout != "silent":
+        shout = raw_input("He's in your sights. Do you attack silently or by screaming, hoping to throw him off guard? silent/shout \n").lower().strip()
+
+        if shout == "shout":
+            print("")
+            print("You get at a good distance and run towards him, screaming at the top of your lungs.")
+            print("The bandit is totally startled and goes for his short sword, but fumbles it out of fear.")
+            print("You smash the rock over his head. The bandit stumbles and falls backwards over a 30-foot cliff.")
+            print("You then make your way back to the cave to plan your next move.")
+            print("")
+            leftRight()
+            print("")
+
+        if shout == "silent":
+            print("")
+            print("You start sneaking up behind the bandit and get within a good distance.")
+            print("You raise the rock over your head and prepare to smash his brains in.")
+            print("In an instant the bandit side-steps and takes a swipe at your mid-section with his short sword.")
+            print("You drop and the rock on your foot and fall to the ground.")
+            print("You bleed out and die a painful death.")
+            print("")
+            playAgain(name)
 
 def goHomeOrFollow():
     home = ""
@@ -181,14 +250,14 @@ def buryOrDie():
         playAgain()
         print("")
 
-def joinOrEscape():
+def joinOrEscape(name):
     join = ""
     while join != "join" and join != "escape":
         join = raw_input("Join the enemy or escape? join/escape \n").lower().strip()
 
     if join == "join":
         print("")
-        print("You join the enemy.")
+        print("You join the enemy, " + name + ".")
         print("")
         continueOrMeet()
         print("")
