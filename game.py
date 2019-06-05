@@ -7,6 +7,7 @@ import sys; print(sys.version)
 import time
 import random
 
+
 print ("")
 print ("O==============================================================================O")
 print ("|                             ++ A Hero's Journey ++                           |")
@@ -16,8 +17,11 @@ print ("")
 # time.sleep(2)
 
 def storyIntro():
-    print("-STORY EXPOSITION GOES HERE -")
-    confrontOrEscape()
+    # create input for character age, etc.
+    character_Name = raw_input("What would you like your character's name to be?: ")
+    print("")
+    print("Hello, " + character_Name + "!")
+    confrontOrEscape(character_Name)
 
 ### ALL OF THE PLAYAGAINS ###
 
@@ -31,6 +35,7 @@ def playAgain():
         print("")
         print("Let's try that again")
         print("")
+        print "\033c"
         confrontOrEscape()
 
     elif answer == "no":
@@ -41,9 +46,10 @@ def playAgain():
         
 ### ALL OF THE GAME ACTIONS ###
 
-def confrontOrEscape():
+def confrontOrEscape(name):
     path = ""
     while path != "confront" and path != "escape":
+        print("The bandits are coming up the stairs, " + name + ". You're going to have to fight them or make a break through the window.")
         path = raw_input("Do you attempt to confront the enemy or escape? confront/escape \n").lower().strip()
 
     if path == "confront":
@@ -91,7 +97,7 @@ def confrontOrSubmit():
         print("")
         print("You go to the bigger tent in the group and take a sword that is placed by the doorway.")
         print("You raise the sword above your head in preparation to strike.")
-        print("You drive th sword through the blankets but do not feel a body underneath.")
+        print("You drive it through the blankets but do not feel a body underneath.")
         print("It was a pile of pillows disguised as a body.")
         print("SHING")
         print("You feel the cold steel of a blade pierce your abdomen.")
@@ -110,6 +116,7 @@ def confrontOrSubmit():
         print("Every soldier scrambles getting up and out of their tents; drawing their swords ready to pounce on you and tear you limb from limb")
         print("A tall man appears from the largest tent.")
         print("'And who might you be?'")
+        print(storyIntro.character_Name + "you say.")
         print("You explain that you are the son of a farmer and that they have killed your father in cold blood.")
         print("'AH. The boy who escaped earlier. I remember. I remember.'")
         print("'You know...it takes a lot of courage to come here in the middle of the night and confront all of us.'")
@@ -199,13 +206,13 @@ def joinOrEscape():
 def continueOrMeet():
     meet = ""
     while meet != "continue" and meet != "meet":
-        meet = raw_input("Join him in his campaign immediately or go and meet the leader; the man who killed your father? continue campaign/meet \n").lower().strip()
+        meet = raw_input("Join him in continuing his campaign immediately or go and meet the leader; the man who killed your father? continue/meet \n").lower().strip()
         
-    if meet == "continue campaign":
+    if meet == "continue":
         print("")
         print("You decide to meet the leader at another time.")
-        print("Right now let's join this campaign and see where it will take me.")
-        print("Maybe I can get some intel.")
+        print("You join his campaign to see where it will take you. Maybe you can get some intel.")
+        print("Maybe you can get some intel.")
         print("Your caravan is being attacked by rebels.")
         print("You have the enemy in your sights.")
         print("")
