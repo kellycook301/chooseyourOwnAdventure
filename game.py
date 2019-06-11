@@ -79,124 +79,77 @@ def confrontOrEscape(name):
         escapeToTheWoods(name)
         print("")
 
-def escapeToTheWoods(name):
-    run = ""
-    while run != "hide" and run != "attack":
-        run = raw_input("Do you go further into the cave or try and take out the bandit by sneaking up and hitting him with a rock? hide/attack \n").lower().strip()
+### LEFT SIDE CHOICES ###        
 
-    if run == "hide":
+def joinOrEscape(name):
+    join = ""
+    while join != "join" and join != "escape":
+        join = raw_input("Join the enemy or escape? join/escape \n").lower().strip()
+
+    if join == "join":
         print("")
-        print("You make your way further into the cave to avoid detection by the bandits or any of his comrades.")
-        print("You move fruther back into the cave.")
-        print("You hear a noise and take shelter behind a rock to avoid any detection.")
-        print("A bandit makes his way towards the cave.")
-        print("He takes a quick glance in.")
-        print("'Huh. Thought I heard something.'")
-        print("The bandit then turns around and walks away.")
-        print("You take a second just to make sure he's gone and then plan your next move.")
-        leftRight()
+        print("You join the enemy, " + name + ".")
+        print("")
+        continueOrMeet(name)
         print("")
 
-    if run == "attack":
+    elif join == "escape":
         print("")
-        print("You pick up a sizable rock and start sneaking towards the bandit, being careful not too make too much noise")
-        print("and waiting until he's got his back to you.")
-        shoutOrSilent(name)
+        print("You run into the forest far away from the enemy.")
+        print("You find a cave for shelter and hide there for a few days untill things die down.")
+        print("After five days you emerge from the cave.")
+        print("While walking through the forest you see the crew from earlier off in the distance.")
         print("")
-
-def leftRight():
-    print("You decide to venture further into the cave")
-    print("")
-
-
-def shoutOrSilent(name):
-    shout = ""
-    while shout != "shout" and shout != "silent":
-        shout = raw_input("He's in your sights. Do you attack silently or by screaming, hoping to throw him off guard? silent/shout \n").lower().strip()
-
-        if shout == "shout":
-            print("")
-            print("You get at a good distance and run towards him, screaming at the top of your lungs.")
-            print("The bandit is totally startled and goes for his short sword, but fumbles it out of fear.")
-            print("You smash the rock over his head. The bandit stumbles and falls backwards over a 30-foot cliff.")
-            print("You then make your way back to the cave to plan your next move.")
-            print("")
-            leftRight()
-            print("")
-
-        if shout == "silent":
-            print("")
-            print("You start sneaking up behind the bandit and get within a good distance.")
-            print("You raise the rock over your head and prepare to smash his brains in.")
-            print("In an instant the bandit side-steps and takes a swipe at your mid-section with his short sword.")
-            print("You drop and the rock on your foot and fall to the ground.")
-            print("You bleed out and die a painful death.")
-            print("")
-            playAgain(name)
-
-def goHomeOrFollow():
-    home = ""
-    while home != "go home" and home != "follow":
-        home = raw_input("Do you turn and go back home or follow the enemy? go home/follow \n").lower().strip()
-
-    if home == "go home":
-        print("")
-        print("You decide that it is best to leave the group be and not seek revenge.")
-        print("You make your way back to your home and go inside.")
-        print("In the kitchen is the corpse of your father who was slain by the nomad horde.")
-        print("")
-        buryOrDie()
+        goHomeOrFollow(name)
         print("")
 
-    elif home == "follow":
+def continueOrMeet(name):
+    meet = ""
+    while meet != "continue" and meet != "meet":
+        meet = raw_input("Join him in continuing his campaign immediately or go and meet the leader; the man who killed your father? continue/meet \n").lower().strip()
+        
+    if meet == "continue":
         print("")
-        print("You decide to follow the group through the forest.")
-        print("You track then until nightfall.")
-        print("Once they have fallen asleep in their tents you strike.")
+        print("You decide to meet the leader at another time.")
+        print("You join his campaign to see where it will take you. Maybe you can get some intel.")
+        print("Maybe you can get some intel.")
+        print("Your caravan is being attacked by rebels.")
+        print("You have the enemy in your sights.")
         print("")
-        confrontOrSubmit()
+        lowerOrShoot(name)
         print("")
-
-def confrontOrSubmit():
-    confront = ""
-    while confront != "confront" and confront != "wake them":
-        confront = raw_input("Do you confront the enemy by attacking their leader in his sleep or by waking them up to talk to them? confront/wake them \n").lower().strip()
-
-    if confront == "confront":
+                
+    elif meet == "meet":
         print("")
-        print("You go to the bigger tent in the group and take a sword that is placed by the doorway.")
-        print("You raise the sword above your head in preparation to strike.")
-        print("You drive it through the blankets but do not feel a body underneath.")
-        print("It was a pile of pillows disguised as a body.")
-        print("SHING")
-        print("You feel the cold steel of a blade pierce your abdomen.")
-        print("'Don't think I'm so foolish. I heard you from a mile away.'")
-        print("The leader of the horde then kicks your struggling body to the ground and takes off your head in one fell swoop.")
-        print("'Pathetic'")
+        print("You decide to go meet the leader; the man who ordered the death of your father and countless others.")
+        print("Story exposition")
         print("")
-        playAgain()
+        killOrSwearAllegiance(name)
         print("")
 
-    elif confront == "wake them":
+def lowerOrShoot(name):
+    shoot = ""
+    while shoot != "lower" and shoot != "shoot":
+        shoot = raw_input("Lower your weapon or shoot the enemy? lower/shoot \n").lower().strip()
+        
+    if shoot == "lower":
         print("")
-        print("You grab a sleeping soldier who looked as though he was to be on guard duty and plunge his own sword into his own stomach.")
-        print("The man crumbles and falls to the ground. His armour making quite a ruckus.")
-        print("You yell for the leader to show his face.")
-        print("Every soldier scrambles getting up and out of their tents; drawing their swords ready to pounce on you and tear you limb from limb")
-        print("A tall man appears from the largest tent.")
-        print("'And who might you be?'")
-        print(storyIntro.character_Name + "you say.")
-        print("You explain that you are the son of a farmer and that they have killed your father in cold blood.")
-        print("'AH. The boy who escaped earlier. I remember. I remember.'")
-        print("'You know...it takes a lot of courage to come here in the middle of the night and confront all of us.'")
-        print("'You even seemed to have taken care of a useless guard who was meant to be keeping watch. What say you join us?'")
-        print("'Here you will do many great things. See many riches. Enjoy the company of many women. And you can eat till your belly is full.'")
-        print("'Surely not something you experienced as a poor farm boy.'")
+        print("You lower your weapon and are spotted.")
+        print("The enemy takes a shot at you and the arrow pierces your heart.")
         print("")
-        killOrSwearAllegiance()
+        print("GAME OVER")
+        print("")
+        playAgain(name)
         print("")
 
-def killOrSwearAllegiance():
+    elif shoot == "shoot":
+        print("")
+        print("The enemy is wounded on the battlefield and cannot fight back")
+        print("")
+        killOrSpare(name)
+        print("")   
+
+def killOrSwearAllegiance(name):
     swear = ""
     while swear != "swear allegiance" and swear != "kill him":
         swear = raw_input("Do you swear allegiance to him and live a lavish life or kill him for murdering your father? swear allegiance/kill him \n").lower().strip()
@@ -215,7 +168,7 @@ def killOrSwearAllegiance():
         print("Many years later you command a legion of men who wander the continent pillaging and murdering.")
         print("Darkness spreads across the land for millenia under your rule.")
         print("")
-        playAgain()
+        playAgain(name)
         print("")
 
     elif swear == "kill him":
@@ -225,100 +178,10 @@ def killOrSwearAllegiance():
         print("'Fool. You could have had it all.'")
         print("Your body is picked up and tossed into the fire.")
         print("")
-        playAgain()
-        print("")
+        playAgain(name)
+        print("")    
 
-def buryOrDie():
-    bury = ""
-    while bury != "bury dad" and bury != "take knife":
-        bury = raw_input("Do you bury your father or take the knife and end your suffering? bury dad/take knife \n").lower().strip()
-
-    if bury == "bury dad":
-        print("")
-        print("You go outside to the family lot and start digging a hole for your father.")
-        print("Tears begin to swell up.")
-        print("At the edge of the forest two men from before notice you and make their way back towards your house.")
-        print("")
-        playAgain()
-        print("")
-
-    elif bury == "take knife":
-        print("")
-        print("You take a knife from the kitchen table and plunge it into your chest.")
-        print("You fall next to your father's corpse and slowly fade away.")
-        print("")
-        playAgain()
-        print("")
-
-def joinOrEscape(name):
-    join = ""
-    while join != "join" and join != "escape":
-        join = raw_input("Join the enemy or escape? join/escape \n").lower().strip()
-
-    if join == "join":
-        print("")
-        print("You join the enemy, " + name + ".")
-        print("")
-        continueOrMeet()
-        print("")
-
-    elif join == "escape":
-        print("")
-        print("You run into the forest far away from the enemy.")
-        print("You find a cave for shelter and hide there for a few days untill things die down.")
-        print("After five days you emerge from the cave.")
-        print("While walking through the forest you see the crew from earlier off in the distance.")
-        print("")
-        goHomeOrFollow()
-        print("")
-
-def continueOrMeet():
-    meet = ""
-    while meet != "continue" and meet != "meet":
-        meet = raw_input("Join him in continuing his campaign immediately or go and meet the leader; the man who killed your father? continue/meet \n").lower().strip()
-        
-    if meet == "continue":
-        print("")
-        print("You decide to meet the leader at another time.")
-        print("You join his campaign to see where it will take you. Maybe you can get some intel.")
-        print("Maybe you can get some intel.")
-        print("Your caravan is being attacked by rebels.")
-        print("You have the enemy in your sights.")
-        print("")
-        lowerOrShoot()
-        print("")
-                
-    elif meet == "meet":
-        print("")
-        print("You decide to go meet the leader; the man who ordered the death of your father and countless others.")
-        print("Story exposition")
-        print("")
-        killOrSwearAllegiance()
-        print("")
-
-def lowerOrShoot():
-    shoot = ""
-    while shoot != "lower" and shoot != "shoot":
-        shoot = raw_input("Lower your weapon or shoot the enemy? lower/shoot \n").lower().strip()
-        
-    if shoot == "lower":
-        print("")
-        print("You lower your weapon and are spotted.")
-        print("The enemy takes a shot at you and the arrow pierces your heart.")
-        print("")
-        print("GAME OVER")
-        print("")
-        playAgain()
-        print("")
-
-    elif shoot == "shoot":
-        print("")
-        print("The enemy is wounded on the battlefield and cannot fight back")
-        print("")
-        killOrSpare()
-        print("")
-
-def killOrSpare():
+def killOrSpare(name):
     kill = ""
     while kill != "kill" and kill != "spare":
         kill = raw_input("Do you kill the rebel who attempted to murder you or do you spare her life? kill/spare \n").lower().strip()
@@ -333,7 +196,7 @@ def killOrSpare():
         print("Many years later you command a legion of men who wander the continent pillaging and murdering.")
         print("Darkness spreads across the land for millenia under your rule.")
         print("")
-        playAgain()
+        playAgain(name)
         print("")
 
     elif kill == "spare":
@@ -348,11 +211,153 @@ def killOrSpare():
         print("He orders you to be killed.")
         print("You are left by the side of the road, forgotten by all, missed by none.")
         print("")
-        playAgain()
+        playAgain(name)
+        print("")         
+
+def goHomeOrFollow(name):
+    home = ""
+    while home != "go home" and home != "follow":
+        home = raw_input("Do you turn and go back home or follow the enemy? go home/follow \n").lower().strip()
+
+    if home == "go home":
+        print("")
+        print("You decide that it is best to leave the group be and not seek revenge.")
+        print("You make your way back to your home and go inside.")
+        print("In the kitchen is the corpse of your father who was slain by the nomad horde.")
+        print("")
+        buryOrDie(name)
         print("")
 
+    elif home == "follow":
+        print("")
+        print("You decide to follow the group through the forest.")
+        print("You track then until nightfall.")
+        print("Once they have fallen asleep in their tents you strike.")
+        print("")
+        confrontOrSubmit(name)
+        print("")
+
+def buryOrDie(name):
+    bury = ""
+    while bury != "bury dad" and bury != "take knife":
+        bury = raw_input("Do you bury your father or take the knife and end your suffering? bury dad/take knife \n").lower().strip()
+
+    if bury == "bury dad":
+        print("")
+        print("You go outside to the family lot and start digging a hole for your father.")
+        print("Tears begin to swell up.")
+        print("At the edge of the forest two men from before notice you and make their way back towards your house.")
+        print("")
+        playAgain(name)
+        print("")
+
+    elif bury == "take knife":
+        print("")
+        print("You take a knife from the kitchen table and plunge it into your chest.")
+        print("You fall next to your father's corpse and slowly fade away.")
+        print("")
+        playAgain(name)
+        print("")
+
+
+def confrontOrSubmit(name):
+    confront = ""
+    while confront != "confront" and confront != "wake them":
+        confront = raw_input("Do you confront the enemy by attacking their leader in his sleep or by waking them up to talk to them? confront/wake them \n").lower().strip()
+
+    if confront == "confront":
+        print("")
+        print("You go to the bigger tent in the group and take a sword that is placed by the doorway.")
+        print("You raise the sword above your head in preparation to strike.")
+        print("You drive it through the blankets but do not feel a body underneath.")
+        print("It was a pile of pillows disguised as a body.")
+        print("SHING")
+        print("You feel the cold steel of a blade pierce your abdomen.")
+        print("'Don't think I'm so foolish. I heard you from a mile away.'")
+        print("The leader of the horde then kicks your struggling body to the ground and takes off your head in one fell swoop.")
+        print("'Pathetic'")
+        print("")
+        playAgain(name)
+        print("")
+
+    elif confront == "wake them":
+        print("")
+        print("You grab a sleeping soldier who looked as though he was to be on guard duty and plunge his own sword into his own stomach.")
+        print("The man crumbles and falls to the ground. His armour making quite a ruckus.")
+        print("You yell for the leader to show his face.")
+        print("Every soldier scrambles getting up and out of their tents; drawing their swords ready to pounce on you and tear you limb from limb")
+        print("A tall man appears from the largest tent.")
+        print("'And who might you be?'")
+        print(storyIntro.character_Name + "you say.")
+        print("You explain that you are the son of a farmer and that they have killed your father in cold blood.")
+        print("'AH. The boy who escaped earlier. I remember. I remember.'")
+        print("'You know...it takes a lot of courage to come here in the middle of the night and confront all of us.'")
+        print("'You even seemed to have taken care of a useless guard who was meant to be keeping watch. What say you join us?'")
+        print("'Here you will do many great things. See many riches. Enjoy the company of many women. And you can eat till your belly is full.'")
+        print("'Surely not something you experienced as a poor farm boy.'")
+        print("")
+        killOrSwearAllegiance(name)
+        print("")
+
+### RIGHT HAND SIDE CHOICES ###
+
+def escapeToTheWoods(name):
+    run = ""
+    while run != "hide" and run != "attack":
+        run = raw_input("Do you go further into the cave or try and take out the bandit by sneaking up and hitting him with a rock? hide/attack \n").lower().strip()
+
+    if run == "hide":
+        print("")
+        print("You make your way further into the cave to avoid detection by the bandits or any of his comrades.")
+        print("You move fruther back into the cave.")
+        print("You hear a noise and take shelter behind a rock to avoid any detection.")
+        print("A bandit makes his way towards the cave.")
+        print("He takes a quick glance in.")
+        print("'Huh. Thought I heard something.'")
+        print("The bandit then turns around and walks away.")
+        print("You take a second just to make sure he's gone and then plan your next move.")
+        leftRight(name)
+        print("")
+
+    if run == "attack":
+        print("")
+        print("You pick up a sizable rock and start sneaking towards the bandit, being careful not too make too much noise")
+        print("and waiting until he's got his back to you.")
+        shoutOrSilent(name)
+        print("")
+
+def leftRight(name):
+    print("You decide to venture further into the cave")
+    print("")
+
+
+def shoutOrSilent(name):
+    shout = ""
+    while shout != "shout" and shout != "silent":
+        shout = raw_input("He's in your sights. Do you attack silently or by screaming, hoping to throw him off guard? silent/shout \n").lower().strip()
+
+        if shout == "shout":
+            print("")
+            print("You get at a good distance and run towards him, screaming at the top of your lungs.")
+            print("The bandit is totally startled and goes for his short sword, but fumbles it out of fear.")
+            print("You smash the rock over his head. The bandit stumbles and falls backwards over a 30-foot cliff.")
+            print("You then make your way back to the cave to plan your next move.")
+            print("")
+            leftRight(name)
+            print("")
+
+        if shout == "silent":
+            print("")
+            print("You start sneaking up behind the bandit and get within a good distance.")
+            print("You raise the rock over your head and prepare to smash his brains in.")
+            print("In an instant the bandit side-steps and takes a swipe at your mid-section with his short sword.")
+            print("You drop and the rock on your foot and fall to the ground.")
+            print("You bleed out and die a painful death.")
+            print("")
+            playAgain(name)
+
 ### START GAME BELOW ###
-### This basically starts everything. Everything is tied to this one function ###
+### This basically starts everything. Everything is tied to this one function. Is that bad? Probably. I dunno. *shrug emoji* ###
 
 
 storyIntro()
