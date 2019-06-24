@@ -79,7 +79,7 @@ def confrontOrEscape(name):
         escapeToTheWoods(name)
         print("")
 
-### LEFT SIDE CHOICES ###        
+### LEFT HAND SIDE CHOICES ###        
 
 def joinOrEscape(name):
     join = ""
@@ -309,13 +309,18 @@ def escapeToTheWoods(name):
     if run == "hide":
         print("")
         print("You make your way further into the cave to avoid detection by the bandits or any of his comrades.")
-        print("You move fruther back into the cave.")
+        print("You move further back into the cave.")
         print("You hear a noise and take shelter behind a rock to avoid any detection.")
         print("A bandit makes his way towards the cave.")
         print("He takes a quick glance in.")
         print("'Huh. Thought I heard something.'")
         print("The bandit then turns around and walks away.")
         print("You take a second just to make sure he's gone and then plan your next move.")
+        print("You decide to make your way further into the cave.")
+        print("You come to a fork and see that you can either go left or right.")
+        print("here is a smaller hole on the right, but there seems to be some kind of visible dim light coming through.")
+        print("The hole on the left is much darker and doesn't seem to have any light coming from it.")
+        print("It also appears to go deeper down into the cave.")
         leftRight(name)
         print("")
 
@@ -325,11 +330,6 @@ def escapeToTheWoods(name):
         print("and waiting until he's got his back to you.")
         shoutOrSilent(name)
         print("")
-
-def leftRight(name):
-    print("You decide to venture further into the cave")
-    print("")
-
 
 def shoutOrSilent(name):
     shout = ""
@@ -343,6 +343,12 @@ def shoutOrSilent(name):
             print("You smash the rock over his head. The bandit stumbles and falls backwards over a 30-foot cliff.")
             print("You then make your way back to the cave to plan your next move.")
             print("")
+            print("As you climb further and further down a thick green fog begins to form")
+            print("'Wow. I didn't think I was in the fucking JUNGLE. Wheere did this fog come from?' you wonder.")
+            print("You go through the fog and notice that there is a fork ahead of you.")
+            print("...like a divulging path. Not a literal fork...you get it.")
+            print("'Ah shit. One of these, huh?'")
+            print("")
             leftRight(name)
             print("")
 
@@ -355,6 +361,106 @@ def shoutOrSilent(name):
             print("You bleed out and die a painful death.")
             print("")
             playAgain(name)
+            print("")        
+
+def leftRight(name):
+    direction = ""
+    while direction != "left" and direction != "right":
+        direction = raw_input("Do you take the left path or the right path? left/right \n").lower().strip()
+
+        if direction == "left":
+            print("") 
+            print("You decide to go down the bigger cavern to the left. It's dark but at least you won't be insanely claustrophobic.")
+            print("You keep trekking down until you reach ther end of the tunnel. At then end is a large door about ten feet tall with torches on each side.")
+            turnBackOrGoIn(name)
+            print("")
+
+        if direction == "right":
+            print("") 
+            print("")
+            print("")
+
+def turnBackOrGoIn(name):
+    door = ""
+    while door != "go in" and door != "turn back":
+        door = raw_input("Do you go through the door or turn back and go the other way? go in/turn back \n").lower().strip()
+
+        if door == "go in":
+            print("")
+            print("You enter the door and there is a crazy old witch lady.")
+            print("She has a riddle for you. If you can answer it correctly she will give you a sword to vanquish your foes with ease.")
+            print("If you fail, you will die.")
+            witchRiddle(name)
+            print("")
+
+        if door == "turn back":
+            print("")
+            print("You decide to turn around and not see what craziness awaits you on the other side of the door")
+            print("You make your way back up the fork in the cave and go down the right side instead.")
+            print("")
+            somethingHappens(name)
+            print("")
+
+def witchRiddle(name):
+    answer = ""
+    while answer != "red" and answer != "white" and answer != "blue" and answer != "all three":
+        answer = raw_input("What are the colors of the American flag? red/white/blue/all three \n").lower().strip()
+
+            if answer == "red":
+                print("")
+                print("'HAHAHAHA NOT.'")
+                print("The witch casts a fire spell and you burst into flames.")
+                print("The witch produces a single shrimp and attaches it to a long stick. She holds it out and uses your burning body to cook the shrimp.")
+                playAgain(name)
+                print("")
+
+            if answer == "white":
+                print("")
+                print("'WRONG.'")
+                print("The witch picks up a trident and throws it right into your chest. You bleed out and die the most painful death.")
+                print("Foolish boy.")
+                playAgain(name)
+                print("")
+
+            if answer == "blue":
+                print("")
+                print("'PFFFFT AS IF.'")
+                print("The witch draws a sword and cleaves off your head. She holds it in front of your body as it collapses.")
+                print("The last thing you heard is the witch's intense cackling.")
+                playAgain(name)
+                print("")
+
+            if answer == "all three":
+                print("")
+                print("'HAHAHA WRONG.'")
+                print("Oh wait. No. You're right...")
+                print("'CORRECT.'")
+                print("You have passed. The witch hands you the Kingslayer; a sword that has made kingdoms crumble.")
+                print("Why she gave you the sword after a single physics question, I'm not sure. But I'd take it.")
+                print("Ther witch leads you through a door in the back of the room and you walk out onto a lush field near your house.")
+                print("You turn around to thank the witch but the cave is gone. You can only see the forest that is a few hundred yards out.")
+                print("You head in the direction of where the bandits were going.")
+                print("You reach their camp by nightfall and take shelter up in a tree further away from where they've stationed themselves.")
+                midnightStrike(name)
+                print("")
+
+def midnightStrike(name):
+    attack = ""
+    while attack != "attack now" and attack != "wait":
+        attack = raw_input("Do you attack now or wait until the following day? \n").lower().strip()
+
+            if attack == "attack now":
+                print("")
+                print("You do something")
+                print("")
+
+            if attack == "wait":
+                print("")
+                print("You do something")
+                print("")
+    
+
+
 
 ### START GAME BELOW ###
 ### This basically starts everything. Everything is tied to this one function. Is that bad? Probably. I dunno. *shrug emoji* ###
