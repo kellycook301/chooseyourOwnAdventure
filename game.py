@@ -377,7 +377,11 @@ def leftRight(name):
 
         if direction == "right":
             print("") 
-            print("")
+            print("A smaller cave is no problem to you. You decide to climb into the smaller hold head first.")
+            print("You inch forward every so slowly. It feels like forever, but you reach the source of the dim light.")
+            print("You crawl out of the hole and emerge into a large cave with a single bright torch.")
+            print("Beside the torch is a tall figure in a black cape that covers its entire body.")
+            youWentRight(name)
             print("")
 
 def turnBackOrGoIn(name):
@@ -397,9 +401,20 @@ def turnBackOrGoIn(name):
             print("")
             print("You decide to turn around and not see what craziness awaits you on the other side of the door")
             print("You make your way back up the fork in the cave and go down the right side instead.")
+            print("A smaller cave is no problem to you. Could be better than the creepy door. You decide to climb into the smaller hold head first.")
+            print("You inch forward every so slowly. It feels like forever, but you reach the source of the dim light.")
+            print("You crawl out of the hole and emerge into a large cave with a single bright torch.")
+            print("Beside the torch is a tall figure in a black cape that covers its entire body.")
+            print("Its decaying hand outstrecthes to yours.")
+            print(name + ", I seeeeee rightttt throuuuuugh yooooou. Yooooou havvvvve commmmmeeee herrrrre lookinnnnnnng forrrr answersssss.'")
+            print("'I haaaaave whatttttt yoooooou seeeeeeek.'")
+            print("Before you appears two swords.")
+            print("'Withhhhhhh thissssss youuuuu cannnnnnn takeeeeee baccccck whatttttt isssss yoursssss. Yourrrrrr faaaaaaaather.'")
+            youWentRight(name)
             print("")
-            somethingHappens(name)
-            print("")
+
+def youWentRight(name):
+
 
 def witchRiddle(name):
     answer = ""
